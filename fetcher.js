@@ -2,7 +2,6 @@ const request = require("request");
 const URL = process.argv[2];
 const filePath = process.argv[3];
 const fs = require("fs");
-//fetch content from remote server
 
 request(URL, (error, response, body) => {
   if (!error && response.statusCode === 200) {
@@ -19,7 +18,7 @@ request(URL, (error, response, body) => {
           `Downloaded and saved ${fileSizeInBytes} bytes to ${filePath}`
         );
       }
-      // file written successfully
+      
     });
   } else {
     if (error.code === "ENOTFOUND") {
@@ -29,4 +28,3 @@ request(URL, (error, response, body) => {
     }
   }
 });
-//write file to disk
