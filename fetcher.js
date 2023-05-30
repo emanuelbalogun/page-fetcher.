@@ -13,7 +13,10 @@ fs.writeFile(filePath, content, err => {
     console.error(err);
   }
   else{
-    console.log('file written successfully');
+     
+    var stats = fs.statSync(filePath);
+    var fileSizeInBytes = stats.size;
+    console.log(`Downloaded and saved ${fileSizeInBytes} bytes to ${filePath}`);
   }
   // file written successfully
 });
